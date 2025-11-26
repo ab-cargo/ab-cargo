@@ -509,7 +509,6 @@ p {
     margin-left: 20px;
   }
 }
-
 .navbar-nav .nav-item a {
   font-size: 18px;
   font-weight: 400;
@@ -568,6 +567,109 @@ p {
 }
 
 @media (max-width: 767px) {
+  /* --- Tambahkan atau sesuaikan ini di file CSS kustom Anda --- */
+
+  @media (max-width: 767px) {
+    /* Umum untuk seluruh body jika ada scroll horizontal yang tidak diinginkan */
+    body {
+      overflow-x: hidden; /* Mencegah scroll horizontal yang tidak diinginkan */
+    }
+
+    /* Navbar Area */
+    .header .navbar-area {
+      padding: 10px 0; /* Sesuaikan padding keseluruhan header */
+    }
+
+    /* Navbar Brand (Logo dan Teks) */
+    .navbar-brand {
+      display: flex; /* Pastikan ini flex untuk logo dan teks berdampingan */
+      align-items: center;
+      justify-content: flex-start;
+      padding: 0; /* Hapus padding default jika ada */
+      margin-right: auto; /* Dorong toggler ke kanan */
+      flex-shrink: 1; /* Biarkan brand menyusut */
+    }
+
+    .navbar-brand img {
+      max-width: 35px; /* Mengurangi ukuran logo agar lebih kecil */
+      height: auto;
+      margin-right: 5px; /* Sedikit jarak antara logo dan teks */
+    }
+
+    .navbar-brand .ms-2 {
+      margin-left: 0.5rem !important; /* Gunakan !important jika ada konflik */
+      line-height: 1.1; /* Mengurangi tinggi baris */
+      white-space: nowrap; /* Mencegah teks nama perusahaan patah baris */
+      overflow: hidden; /* Sembunyikan jika teks terlalu panjang */
+      text-overflow: ellipsis; /* Tampilkan ... jika teks terpotong */
+    }
+
+    .navbar-brand .ms-2 span.d-block.fw-bold {
+      font-size: 13px; /* Ukuran font lebih kecil untuk nama perusahaan */
+    }
+
+    .navbar-brand .ms-2 span.d-block.fw-bold:last-child {
+      font-size: 11px; /* Ukuran font lebih kecil untuk AB CARGO */
+    }
+
+    /* Navbar Toggler (Tombol Hamburger) */
+    .navbar-toggler {
+      padding: 5px 8px; /* Padding lebih kecil */
+      font-size: 1rem; /* Ukuran icon hamburger */
+    }
+
+    /* Pastikan menu yang collapse memiliki background */
+    #navbarSupportedContent {
+      background-color: #ffffff; /* Contoh: Latar belakang putih */
+      position: absolute; /* Penting agar menu muncul di atas konten lain */
+      width: 100%;
+      left: 0;
+      top: 100%; /* Muncul tepat di bawah navbar */
+      z-index: 1000; /* Pastikan di atas elemen lain */
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+      border-top: 1px solid #eee;
+    }
+
+    .navbar-nav {
+      flex-direction: column !important; /* Susun item menu secara vertikal */
+      padding: 10px 0;
+    }
+
+    .navbar-nav .nav-item {
+      text-align: center;
+      margin: 5px 0;
+    }
+
+    .navbar-nav .nav-item a {
+      font-size: 16px;
+      padding: 8px 15px;
+      display: block;
+    }
+
+    /* Konten Halaman Utama (Welcome To AB-CARGO) */
+    /* Ini adalah area di luar header, Anda perlu menyesuaikannya berdasarkan struktur HTML Anda.
+       Asumsikan ini ada di dalam div container atau section. */
+    .hero-section h1 {
+      /* Sesuaikan selector ini dengan tag h1 atau teks di "Welcome To AB-CARGO" */
+      font-size: 28px; /* Contoh ukuran font untuk judul utama */
+      line-height: 1.2;
+      text-align: center;
+      padding: 0 15px; /* Beri padding agar tidak terlalu mepet pinggir */
+    }
+    .hero-section p {
+      /* Sesuaikan selector ini untuk teks di bawah judul */
+      font-size: 16px; /* Contoh ukuran font untuk paragraf */
+      text-align: center;
+      padding: 0 15px;
+    }
+
+    /* Jika ada elemen yang menyebabkan scroll horizontal, periksa elemen-elemen tersebut.
+       Seringkali karena ada gambar terlalu besar atau padding/margin yang berlebihan. */
+    img {
+      max-width: 100%; /* Pastikan semua gambar tidak melebihi lebar container-nya */
+      height: auto;
+    }
+  }
   .navbar-nav .nav-item:hover .sub-menu {
     top: 0;
   }
@@ -697,9 +799,64 @@ p {
 }
 
 @media (max-width: 767px) {
-  .hero-section .hero-content {
-    margin-bottom: 50px;
+  /* 1. Pengaturan Container Utama */
+  .hero-section {
+    padding-top: 70px; /* Kurangi padding atas/bawah agar tidak terlalu panjang */
+    padding-bottom: 60px;
+    text-align: center; /* Pusatkan teks untuk tampilan mobile yang lebih baik */
   }
+
+  /* 2. Konten Hero (Teks) */
+  .hero-content {
+    margin-top: 20px; /* Hapus margin atas yang mungkin ada */
+    margin-bottom: 30px; /* Beri jarak di bawah teks sebelum gambar */
+    padding: 0 15px; /* Beri padding horizontal agar teks tidak menempel di pinggir */
+  }
+
+  /* A. Teks Kecil "Welcome To AB-CARGO" */
+  .hero-content span {
+    font-size: 14px; /* Kecilkan ukuran font */
+    display: block; /* Pastikan ia mengambil baris sendiri */
+    margin-bottom: 5px;
+  }
+
+  /* B. Judul Utama (H1) */
+  .hero-content h1 {
+    /* Judul adalah elemen terbesar yang menyebabkan masalah di screenshot */
+    font-size: 28px;
+    line-height: 1.2; /* Jarak baris yang rapat */
+    margin-bottom: 10px;
+  }
+
+  /* C. Paragraf Deskripsi */
+  .hero-content p {
+    font-size: 14px; /* Kecilkan ukuran font */
+    margin-bottom: 20px;
+  }
+
+  /* 3. Gambar Hero */
+  .hero-img {
+    text-align: center; /* Pusatkan gambar di dalam kolomnya */
+    margin-top: 10px; /* Beri sedikit jarak dari konten di atasnya */
+  }
+
+  .hero-img img {
+    /* Wajib memastikan gambar tidak melebihi lebar layar */
+    max-width: 90%;
+    height: auto;
+  }
+
+  /* 4. Overwrite Kolom (Jika diperlukan) */
+  /* Karena Anda menggunakan col-lg-6, Bootstrap sudah menumpuknya di mobile.
+       Kita hanya perlu memastikan tidak ada padding/margin berlebihan yang merusak tata letak. */
+  .hero-section .row > div {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  /* .hero-section .hero-content {
+    margin-bottom: 50px;
+  } */
 }
 
 .hero-section .hero-content span {
